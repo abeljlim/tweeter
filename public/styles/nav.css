@@ -1,0 +1,37 @@
+nav {
+  font-family: "Source Sans Pro", sans-serif;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-bottom: 16px;
+  position: fixed; top: 0; left: 0;
+  width: 100%; /* needed this as well as position: fixed */
+}
+
+nav span {
+  font-family: "Bungee", sans-serif;
+}
+
+nav span#logo {
+  align-self: flex-end;
+  font-size: 50px;
+}
+
+nav span#prompt-text {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav div#prompt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* center "Write a new tweet" and have the two angles down at the bottom */
+  align-items: center;
+}
+
+.fa-angles-down {
+  color: red;
+}
