@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -25,9 +28,107 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- main {
+main {
   margin-left: 5%;
   margin-right: 5%;
   text-align: center;
   background-color: inherit;
- }
+}
+
+article.tweet-container {
+  margin-top: 2.5em;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 0.8em;
+  padding: 0.2em;
+  display: flex;
+  flex-direction: column;
+}
+
+article.tweet-container:hover {
+  box-shadow: 5px 5px#C9CAE2;
+}
+
+article.tweet-container header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.6em;
+
+  /* overriding the header.css header css NOTE: Not sure if this is good practice */
+  height: auto;
+  margin-top: 0;
+  width: auto;
+  background-color: transparent;
+  background-image: none;
+}
+
+article.tweet-container header div.author-name-and-avatar {
+  display: flex;
+  align-self: center;
+}
+
+article.tweet-container header div.author-name-and-avatar div.author-name {
+  padding-left: 0.45em;
+  display: flex;
+  align-self: center;
+}
+
+article.tweet-container header div.author-name-and-avatar div.author-avatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 2em;
+  height: 1.5em;
+}
+article.tweet-container header div.author-name-and-avatar div.author-avatar img {
+  width: 2em;
+  height: 2em;
+}
+
+article.tweet-container header div.author-handle {
+  font-weight: 600;
+  opacity: 0.4;
+  color: #4156A0;
+  display: flex;
+  align-self: center;
+  font-size: 0.8em;
+}
+
+article.tweet-container p {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-weight: 600;
+  text-align: left;
+}
+
+article.tweet-container footer {
+  border-top-width: 3px;
+  border-top-style: solid;
+  padding-left: 1em;
+  padding-right: 0.5em;
+  padding-top: 0.4em;
+  height: 1.5em;
+  padding-bottom: 0.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article.tweet-container footer div.timestamp {
+  font-size: 0.5em;
+  font-weight: 600;
+  display: flex;
+  align-self: center;
+}
+
+article.tweet-container footer div.tweet-actions {
+  font-size: 0.5em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 5em;
+  color: #4156A0;
+}
