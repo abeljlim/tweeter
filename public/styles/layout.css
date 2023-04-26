@@ -57,6 +57,7 @@ article.tweet-container header {
   padding-left: 0.375em;
   padding-right: 0.375em;
   padding-top: 0.475em;
+  padding-bottom: 0.7em;
 }
 
 article.tweet-container header div.author-name-and-avatar {
@@ -65,7 +66,8 @@ article.tweet-container header div.author-name-and-avatar {
 }
 
 article.tweet-container header div.author-name-and-avatar div.author-name {
-  padding-left: 0.45em;
+  padding-left: 0.25em;
+  padding-top: 0.4em;
   display: flex;
   align-self: center;
 }
@@ -78,11 +80,12 @@ article.tweet-container header div.author-name-and-avatar div.author-avatar {
   height: 1.5em;
 }
 article.tweet-container header div.author-name-and-avatar div.author-avatar img {
-  width: 2em;
-  height: 2em;
+  width: 1.8em;
+  height: 1.8em;
 }
 
 article.tweet-container header div.author-handle {
+  padding-top: 0.4em;
   font-weight: 600;
   opacity: 0.4;
   color: #4156A0;
@@ -92,6 +95,7 @@ article.tweet-container header div.author-handle {
 }
 
 article.tweet-container p {
+
   padding-left: 0.875em;
   padding-right: 0.875em;
   font-weight: 600;

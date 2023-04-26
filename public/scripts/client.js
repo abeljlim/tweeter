@@ -129,7 +129,7 @@ $(document).ready(function() {
       $tweetsContainer.prepend($tweet);
     }
   };
-  renderTweets(data);
+  // renderTweets(data);
     // console.log($tweet);
-  // $('#tweets-container').prepend($tweet);
+  $('#tweets-container').prepend($tweet);
 });
