@@ -40,7 +40,8 @@ article.tweet-container {
   border-width: 3px;
   border-style: solid;
   font-size: 0.8em;
-  padding: 0.2em;
+  padding: 0.3em;
+  padding-bottom: 0.4em;
   display: flex;
   flex-direction: column;
 }
@@ -53,9 +54,9 @@ article.tweet-container header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.6em;
+  padding-left: 0.375em;
+  padding-right: 0.375em;
+  padding-top: 0.475em;
 
   /* overriding the header.css header css NOTE: Not sure if this is good practice */
   height: auto;
@@ -98,8 +99,8 @@ article.tweet-container header div.author-handle {
 }
 
 article.tweet-container p {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 0.875em;
+  padding-right: 0.875em;
   font-weight: 600;
   text-align: left;
 }
@@ -107,8 +108,8 @@ article.tweet-container p {
 article.tweet-container footer {
   border-top-width: 3px;
   border-top-style: solid;
-  padding-left: 1em;
-  padding-right: 0.5em;
+  padding-left: 0.875em;
+  padding-right: 0.375em;
   padding-top: 0.4em;
   height: 1.5em;
   padding-bottom: 0.2em;
