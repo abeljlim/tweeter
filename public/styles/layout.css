@@ -59,11 +59,11 @@ article.tweet-container header {
   padding-top: 0.475em;
 
   /* overriding the header.css header css NOTE: Not sure if this is good practice */
-  height: auto;
+  /* height: auto;
   margin-top: 0;
   width: auto;
   background-color: transparent;
-  background-image: none;
+  background-image: none; */
 }
 
 article.tweet-container header div.author-name-and-avatar {
