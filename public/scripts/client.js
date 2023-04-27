@@ -169,7 +169,10 @@ $(document).ready(function() {
         $errorMsg.slideDown("slow");
         return;
       }
+    });
 
+    // do the tweet creation not after the slideUp function, but simultaneously, which means handling the booleans again
+    if(!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
       console.log("$errorMsg:", $errorMsg);
 
 
@@ -188,7 +191,7 @@ $(document).ready(function() {
         loadTweets();
         console.log('request has resolved');
       });
-    });
+    }
   };
   
   loadTweets();
