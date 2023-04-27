@@ -51,10 +51,6 @@ $(document).ready(function() {
     </div>
   </footer>`));
 
-    // $tweetElement.children('header').append($('<div>'));
-    // $tweetElement.append($('<p>'));
-    // $tweetElement.append($('<footer>'));
-    console.log('tweetElement.html():', $tweetElement.html());
     return $tweetElement;
   };
 
@@ -110,12 +106,10 @@ $(document).ready(function() {
 
     // do the tweet creation not after the slideUp function, but simultaneously, which means handling the booleans again
     if(!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
-      console.log("$errorMsg:", $errorMsg);
 
 
       // happy path
       const dataQueryString = $newTweetForm.serialize();
-      console.log('dataQueryString:', dataQueryString);
 
       // clear form
       $('#tweet-text').val('');
