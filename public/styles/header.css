@@ -1,6 +1,5 @@
 header#user {
   height: 400px;
-  margin-top: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,4 +7,14 @@ header#user {
   flex-direction: column;
   background-color: orange;
   background-image: url("/images/bg-always-grey.png");
+}
+
+header#user h2 {
+  color: white;
+}
+
+@media only screen and (min-width: 1024px) {
+  header#user {
+    width: 50vw;
+  }
 }

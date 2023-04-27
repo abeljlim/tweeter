@@ -24,8 +24,12 @@
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
   <!-- External JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -41,57 +45,53 @@
       <i class="fa-solid fa-angles-down"></i>
     </div>
   </nav>
-  <header id="user">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <div>
-      <h2>
-        Jacob
-      </h2>
-    </div>
-  </header>
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <div class="error"></div>
-      <form action="/tweets/" method="post">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <section id="tweets-container">
-      <article class="tweet-container">
-        <header>
-          <div class="author-name-and-avatar">
-            <div class="author-avatar"><img src="https://i.imgur.com/73hZDYK.png" /></div>
-            <div class="author-name">Newton</div>
+  <div id="responsive-items">
+    <header id="user">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <div>
+        <h2>
+          Jacob
+        </h2>
+      </div>
+    </header>
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <div class="error"></div>
+        <form action="/tweets/" method="post">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
-          <div class="author-handle">@SirIsaac</div>
-        </header>
-        <p>If I have seen further it is by standing on the shoulders of giants</p>
-        <footer>
-          <div class="timestamp">10 days ago</div>
-          <div class="tweet-actions">
-            <i class="fa-regular fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-        </footer>
-      </article>
-    </section>
-    <h1>Lorem ipsum</h1>
-    <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-    <h2>Ut enim</h2>
-    <p>ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-  </main>
+        </form>
+      </section>
+      <section id="tweets-container">
+        <article class="tweet-container">
+          <header>
+            <div class="author-name-and-avatar">
+              <div class="author-avatar"><img src="https://i.imgur.com/73hZDYK.png" /></div>
+              <div class="author-name">Newton</div>
+            </div>
+            <div class="author-handle">@SirIsaac</div>
+          </header>
+          <p>If I have seen further it is by standing on the shoulders of giants</p>
+          <footer>
+            <div class="timestamp">10 days ago</div>
+            <div class="tweet-actions">
+              <i class="fa-regular fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
 </body>
 
 </html>
