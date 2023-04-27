@@ -130,3 +130,15 @@ article.tweet-container footer div.tweet-actions {
   width: 5em;
   color: #4156A0;
 }
+
+div.error {
+  color: red;
+  border-color: red;
+  border-width: 3px;
+  border-style: solid;
+  margin: 0.5em 0;
+  padding: 0.25em;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+}

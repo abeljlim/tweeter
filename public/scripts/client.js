@@ -148,17 +148,28 @@ $(document).ready(function() {
     const textareaLen = $newTweetForm.children('textarea').val().length;
     
     const totalCharsLeft = origCounterValue - textareaLen;
+    
+    // remove any existing errors
+    const $errorMsg = $newTweetForm.parent().find('div.error');
+    console.log("$errorMsg:", $errorMsg);
+    if($errorMsg) {
+      $errorMsg.remove();
+    }
+
     if (totalCharsLeft === origCounterValue) {
       // error message
-      alert('Error: No message found!')
+      $newTweetForm.parent().children().eq(0).after(`<div class="error"><i class="fa-solid fa-triangle-exclamation"></i>No message found, please write something<i class="fa-solid fa-triangle-exclamation"></i></div>`);
+
       return;
     }
     
     if (totalCharsLeft < 0) {
       // error message
-      alert('Error: Your tweet is too long!')
+      $newTweetForm.parent().children().eq(0).after(`<div class="error"><i class="fa-solid fa-triangle-exclamation"></i>Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...<i class="fa-solid fa-triangle-exclamation"></i></div>`);
       return;
     }
+
+    $("#holder > div:nth-child(2)").after("<div>foobar</div>");
     
 
     // happy path

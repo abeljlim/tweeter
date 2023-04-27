@@ -19,6 +19,7 @@
   font-weight: 600;
   font-size: 0.8em;
   resize: none;
+  outline: none;
 }
 section.new-tweet form {
   display: flex;
@@ -40,4 +41,20 @@ section.new-tweet form div {
 section.new-tweet form div button {
   color:white;
   background-color: #4056A1;
+}
+
+i.fa-solid.fa-triangle-exclamation {
+  margin: 0 0.3em;
+}
+
+div.error {
+  color: red;
+  border-color: red;
+  border-width: 3px;
+  border-style: solid;
+  margin: 0.5em 0;
+  padding: 0.25em;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
 }
