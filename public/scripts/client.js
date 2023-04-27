@@ -189,9 +189,9 @@ $(document).ready(function() {
         console.log('request has resolved');
       });
     });
-    loadTweets();
   };
-
+  
+  loadTweets();
   $newTweetForm.on('submit', validateForm);
   // console.log($tweet);
   // $('#tweets-container').prepend($tweet);
