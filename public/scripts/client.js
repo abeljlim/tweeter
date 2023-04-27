@@ -129,7 +129,55 @@ $(document).ready(function() {
       $tweetsContainer.prepend($tweet);
     }
   };
-  // renderTweets(data);
-    // console.log($tweet);
-  $('#tweets-container').prepend($tweet);
+
+  const loadTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets',
+    }).then(function (tweets) {
+      renderTweets(tweets);
+    })
+  }
+  const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
+
+  const $newTweetForm = $('.new-tweet').children('form');
+  $newTweetForm.on('submit', function (event) {
+    event.preventDefault();
+
+    // validate form before confirming submission
+    const textareaLen = $newTweetForm.children('textarea').val().length;
+    
+    const totalCharsLeft = origCounterValue - textareaLen;
+    if (totalCharsLeft === origCounterValue) {
+      // error message
+      alert('Error: No message found!')
+      return;
+    }
+    
+    if (totalCharsLeft < 0) {
+      // error message
+      alert('Error: Your tweet is too long!')
+      return;
+    }
+    
+
+    // happy path
+    const dataQueryString = $newTweetForm.serialize();
+    console.log('dataQueryString:', dataQueryString);
+    
+    // clear form
+    $('#tweet-text').val('');
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets/',
+      data: dataQueryString
+    }).then(function(/* responseData */) {
+      loadTweets();
+      console.log('request has resolved');
+    });
+  })
+  loadTweets();
+  // console.log($tweet);
+  // $('#tweets-container').prepend($tweet);
 });
