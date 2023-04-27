@@ -31,6 +31,7 @@ body {
 main {
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 0.83em;
   text-align: center;
   background-color: inherit;
 }
@@ -135,6 +136,7 @@ article.tweet-container footer div.tweet-actions {
   margin-top: 120px;
 }
 
+/* For desktop */
 @media only screen and (min-width: 1024px) {
   #responsive-items {
     display: flex;

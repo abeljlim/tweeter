@@ -91,7 +91,6 @@ $(document).ready(function() {
       if (totalCharsLeft === origCounterValue) {
         // error message
         $errorMsg.html(`<i class="fa-solid fa-triangle-exclamation"></i>No message found, please write something<i class="fa-solid fa-triangle-exclamation"></i>`);
-        // $newTweetForm.parent().children().eq(0).after(`<div class="error"></div>`);
         $errorMsg.slideDown("slow");
         return;
       }
