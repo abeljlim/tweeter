@@ -124,71 +124,75 @@ $(document).ready(function() {
   const renderTweets = function(tweetsArr) {
     const $tweetsContainer = $('#tweets-container');
     $tweetsContainer.empty();
-    for(const tweet of tweetsArr) {
+    for (const tweet of tweetsArr) {
       const $tweet = createTweetElement(tweet);
       $tweetsContainer.prepend($tweet);
     }
   };
 
+
   const loadTweets = function() {
     $.ajax({
       method: 'GET',
       url: '/tweets',
-    }).then(function (tweets) {
+    }).then(function(tweets) {
       renderTweets(tweets);
-    })
-  }
+    });
+  };
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
 
   const $newTweetForm = $('.new-tweet').children('form');
-  $newTweetForm.on('submit', function (event) {
+
+  const validateForm = function(event) {
     event.preventDefault();
 
     // validate form before confirming submission
     const textareaLen = $newTweetForm.children('textarea').val().length;
-    
+
     const totalCharsLeft = origCounterValue - textareaLen;
-    
+
     // remove any existing errors
     const $errorMsg = $newTweetForm.parent().find('div.error');
-    console.log("$errorMsg:", $errorMsg);
-    if($errorMsg) {
-      $errorMsg.remove();
-    }
+    $errorMsg.slideUp("slow", function() {
+      // do validation
+      if (totalCharsLeft === origCounterValue) {
+        // error message
+        $errorMsg.html(`<i class="fa-solid fa-triangle-exclamation"></i>No message found, please write something<i class="fa-solid fa-triangle-exclamation"></i>`);
+        // $newTweetForm.parent().children().eq(0).after(`<div class="error"></div>`);
+        $errorMsg.slideDown("slow");
+        return;
+      }
 
-    if (totalCharsLeft === origCounterValue) {
-      // error message
-      $newTweetForm.parent().children().eq(0).after(`<div class="error"><i class="fa-solid fa-triangle-exclamation"></i>No message found, please write something<i class="fa-solid fa-triangle-exclamation"></i></div>`);
+      if (totalCharsLeft < 0) {
+        // error message
+        $errorMsg.html(`<i class="fa-solid fa-triangle-exclamation"></i>Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...<i class="fa-solid fa-triangle-exclamation"></i>`);
+        $errorMsg.slideDown("slow");
+        return;
+      }
 
-      return;
-    }
-    
-    if (totalCharsLeft < 0) {
-      // error message
-      $newTweetForm.parent().children().eq(0).after(`<div class="error"><i class="fa-solid fa-triangle-exclamation"></i>Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...<i class="fa-solid fa-triangle-exclamation"></i></div>`);
-      return;
-    }
+      console.log("$errorMsg:", $errorMsg);
 
-    $("#holder > div:nth-child(2)").after("<div>foobar</div>");
-    
 
-    // happy path
-    const dataQueryString = $newTweetForm.serialize();
-    console.log('dataQueryString:', dataQueryString);
-    
-    // clear form
-    $('#tweet-text').val('');
+      // happy path
+      const dataQueryString = $newTweetForm.serialize();
+      console.log('dataQueryString:', dataQueryString);
 
-    $.ajax({
-      method: 'POST',
-      url: '/tweets/',
-      data: dataQueryString
-    }).then(function(/* responseData */) {
-      loadTweets();
-      console.log('request has resolved');
+      // clear form
+      $('#tweet-text').val('');
+
+      $.ajax({
+        method: 'POST',
+        url: '/tweets/',
+        data: dataQueryString
+      }).then(function(/* responseData */) {
+        loadTweets();
+        console.log('request has resolved');
+      });
     });
-  })
-  loadTweets();
+    loadTweets();
+  };
+
+  $newTweetForm.on('submit', validateForm);
   // console.log($tweet);
   // $('#tweets-container').prepend($tweet);
 });
