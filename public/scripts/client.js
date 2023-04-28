@@ -1,8 +1,8 @@
 $(document).ready(function() {
   const createTweetElement = function(tweet) {
 
-    // Implementing jQuery HTML data to avoid XSS
-    
+    // Implementing jQuery HTML data so as to avoid XSS attacks
+
     const $tweetElement = $('<article>');
     $tweetElement.addClass('tweet-container');
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
     $tweetElement.append($p);
 
     // handle footer data
-    // probably won't be able to inject anything here, so will just code it in
+    // probably won't be able to inject anything here, so will just code it in directly
     $tweetElement.append($(`<footer>
     <div class="timestamp">${timeago.format(1461116232227)}</div>
     <div class="tweet-actions">
