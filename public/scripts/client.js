@@ -68,7 +68,11 @@ $(document).ready(function() {
   };
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
 
+  const $newTweetFormAnotherWay = $('#tweet-text').parent();
   const $newTweetForm = $('.new-tweet').children('form');
+  console.log('$newTweetForm', $newTweetForm);
+  console.log('$newTweetFormAnotherWay', $newTweetFormAnotherWay);
+  console.log('$newTweetForm.is($newTweetFormAnotherWay)', ($newTweetForm.is($newTweetFormAnotherWay)));
 
   const validateFormAndAjax = function(event) {
     event.preventDefault();
