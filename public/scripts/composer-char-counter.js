@@ -21,5 +21,6 @@ $(document).ready(function() {
   };
 
   $textarea.on('input', updateCounter);
-  $textarea.parent().on('submit', updateCounter);
+  const $newTweetForm = $textarea.parent();
+  $newTweetForm.on('submit', updateCounter);
 });
