@@ -66,8 +66,9 @@ $(document).ready(function() {
       renderTweets(tweets);
     });
   };
+  
+  // traverse from #tweet-text to get the char counter number from the original DOM data, which is the original character limit
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
-
   const $newTweetForm = $('#tweet-text').parent();
 
   const validateFormAndAjax = function(event) {

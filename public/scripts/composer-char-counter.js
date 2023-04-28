@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // traverse to get the compose tweet char counter number from the original DOM data, which is the original character limit
+  // traverse from element with id #tweet-text to get the char counter number from the original DOM data, which is the original character limit
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
 
   $('#tweet-text').on('input', function() {
