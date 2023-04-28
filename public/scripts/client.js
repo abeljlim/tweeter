@@ -50,6 +50,7 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweetsArr) {
+    // empty #tweets-container, iterate through each tweet and add tweet elements in reverse chronological order
     const $tweetsContainer = $('#tweets-container');
     $tweetsContainer.empty();
     for (const tweet of tweetsArr) {
@@ -59,6 +60,7 @@ $(document).ready(function() {
   };
 
   const loadTweets = function() {
+    // fetch tweets from '/tweets' route
     $.ajax({
       method: 'GET',
       url: '/tweets',
@@ -67,7 +69,7 @@ $(document).ready(function() {
     });
   };
   
-  // traverse from #tweet-text to get the char counter number from the original DOM data, which is the original character limit
+  // traverse from element with id #tweet-text to get the char counter number from the original DOM data, which is the original character limit
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
   const $newTweetForm = $('#tweet-text').parent();
 
@@ -82,19 +84,20 @@ $(document).ready(function() {
     // remove any existing errors
     const $errorMsg = $newTweetForm.parent().find('div.error');
     $errorMsg.slideUp("slow", function() {
+
       // do validation
-
+      
       const warningHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
-
+      
       if (totalCharsLeft === origCounterValue) {
-        // error message
+        // show error message
         $errorMsg.html(`${warningHTML}No message found, please write something${warningHTML}`);
         $errorMsg.slideDown("slow");
         return;
       }
 
       if (totalCharsLeft < 0) {
-        // error message
+        // show error message
         $errorMsg.html(`${warningHTML}Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...${warningHTML}`);
         $errorMsg.slideDown("slow");
         return;
@@ -109,6 +112,8 @@ $(document).ready(function() {
       // clear form
       $('#tweet-text').val('');
 
+      
+      // POST request to add tweet via '/tweets/' route
       $.ajax({
         method: 'POST',
         url: '/tweets/',
