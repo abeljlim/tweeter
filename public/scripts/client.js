@@ -1,14 +1,8 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function() {
   const createTweetElement = function(tweet) {
 
     // Implementing jQuery HTML data to avoid XSS
-
+    
     const $tweetElement = $('<article>');
     $tweetElement.addClass('tweet-container');
 
@@ -63,7 +57,6 @@ $(document).ready(function() {
     }
   };
 
-
   const loadTweets = function() {
     $.ajax({
       method: 'GET',
@@ -105,8 +98,6 @@ $(document).ready(function() {
 
     // do the tweet creation not after the slideUp function, but simultaneously, which means handling the booleans again
     if(!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
-
-
       // happy path
       const dataQueryString = $newTweetForm.serialize();
 
