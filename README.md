@@ -2,6 +2,11 @@
 
 Tweeter is a simple, single-page Twitter clone. It allows for the creation of new tweets made by simulated random users. Tweets are limited to 140 characters (unfortunately). Desktop and mobile browsers are supported.
 
+## Final Product
+
+!["Mobile portrait view"](./docs/mobile.png)
+!["Desktop view"](./docs/desktop.png)
+
 ## Getting Started
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.

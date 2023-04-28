@@ -25,5 +25,7 @@ header#user h2 span.last-name {
 @media only screen and (min-width: 1024px) {
   header#user {
     width: 35vw;
+    margin-left: 3rem;
+    margin-top: 3rem;
   }
 }

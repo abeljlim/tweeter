@@ -114,7 +114,6 @@ $(document).ready(function() {
         data: dataQueryString
       }).then(function() {
         loadTweets();
-        console.log('request has resolved');
       });
     }
   };

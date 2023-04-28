@@ -151,5 +151,7 @@ i.fa-flag:hover, i.fa-retweet:hover, i.fa-heart:hover {
   #responsive-items {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-top: calc(120px + 3rem);
   }
 }
