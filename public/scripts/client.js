@@ -2,44 +2,34 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
 
     // Implementing jQuery HTML data so as to avoid XSS attacks
-
-    const $tweetElement = $(`<article>`);
-    $tweetElement.addClass('tweet-container');
-
-    // handle header data
+    const $tweetElement = $(`<article class="tweet-container">
+        <header>
+        <div class="author-name-and-avatar">
+          <div class="author-avatar"><img /></div>
+          <div class="author-name"></div>
+        </div>
+        <div class="author-handle"></div>
+      </header>
+      <p></p>
+      <footer>
+        <div class="timestamp">${timeago.format(tweet.created_at)}</div>
+        <div class="tweet-actions">
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </footer>
+    </article>`);
+  
     // potentially inputted data is handled with functions that escape potentially insecure text
-    const $tweetHeader = $(`<header>
-    <div class="author-name-and-avatar">
-      <div class="author-avatar"><img /></div>
-      <div class="author-name">Newton</div>
-    </div>
-    <div class="author-handle">@SirIsaac</div>
-  </header>`);
-    const $img = $tweetHeader.find('img');
+    const $img = $tweetElement.find('img');
     $img.attr('src', tweet.user.avatars);
-    const $authorNameDiv = $tweetHeader.find('div.author-name');
+    const $authorNameDiv = $tweetElement.find('div.author-name');
     $authorNameDiv.text(tweet.user.name);
-    const $authorHandle = $tweetHeader.find('div.author-handle');
+    const $authorHandle = $tweetElement.find('div.author-handle');
     $authorHandle.text(tweet.user.handle);
-
-    $tweetElement.append($tweetHeader);
-
-    // handle p data
-    const $p = $('<p>');
+    const $p = $tweetElement.find('p');
     $p.text(tweet.content.text);
-
-    $tweetElement.append($p);
-
-    // handle footer data
-    // probably won't be able to inject anything here, so will just code it in directly
-    $tweetElement.append($(`<footer>
-    <div class="timestamp">${timeago.format(tweet.created_at)}</div>
-    <div class="tweet-actions">
-      <i class="fa-solid fa-flag"></i>
-      <i class="fa-solid fa-retweet"></i>
-      <i class="fa-solid fa-heart"></i>
-    </div>
-  </footer>`));
 
     return $tweetElement;
   };
