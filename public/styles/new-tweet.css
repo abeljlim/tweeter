@@ -54,8 +54,7 @@ div.error {
   border-style: solid;
   margin: 0.5em 0;
   padding: 0.25em;
-  display: flex;
-  align-self: flex-start;
+  text-align: left;
   width: 100%;
   display: none;
 }

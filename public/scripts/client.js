@@ -81,16 +81,19 @@ $(document).ready(function() {
     const $errorMsg = $newTweetForm.parent().find('div.error');
     $errorMsg.slideUp("slow", function() {
       // do validation
+
+      const warningHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+
       if (totalCharsLeft === origCounterValue) {
         // error message
-        $errorMsg.html(`<i class="fa-solid fa-triangle-exclamation"></i>No message found, please write something<i class="fa-solid fa-triangle-exclamation"></i>`);
+        $errorMsg.html(`${warningHTML}No message found, please write something${warningHTML}`);
         $errorMsg.slideDown("slow");
         return;
       }
 
       if (totalCharsLeft < 0) {
         // error message
-        $errorMsg.html(`<i class="fa-solid fa-triangle-exclamation"></i>Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...<i class="fa-solid fa-triangle-exclamation"></i>`);
+        $errorMsg.html(`${warningHTML}Your tweet is too long! Don't forget about that ${origCounterValue} character limit! ...sorry...${warningHTML}`);
         $errorMsg.slideDown("slow");
         return;
       }
