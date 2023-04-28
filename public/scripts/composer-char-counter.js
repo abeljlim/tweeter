@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
   };
 
+  // update counter whenever a char is inputted or the tweet button is pressed for submission
   $textarea.on('input', updateCounter);
-  const $newTweetForm = $textarea.parent();
-  $newTweetForm.on('submit', updateCounter);
+  $textarea.parent().on('submit', updateCounter);
 });
