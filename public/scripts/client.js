@@ -37,7 +37,7 @@ $(document).ready(function() {
     // handle footer data
     // probably won't be able to inject anything here, so will just code it in directly
     $tweetElement.append($(`<footer>
-    <div class="timestamp">${timeago.format(1461116232227)}</div>
+    <div class="timestamp">${timeago.format(tweet.created_at)}</div>
     <div class="tweet-actions">
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
