@@ -3,29 +3,24 @@ $(document).ready(function() {
 
     // Implementing jQuery HTML data so as to avoid XSS attacks
 
-    const $tweetElement = $('<article>');
+    const $tweetElement = $(`<article>`);
     $tweetElement.addClass('tweet-container');
 
     // handle header data
-    // (one element and attribute at a time, so as to avoid XSS injection from user-inputted data)
-    const $tweetHeader = $('<header>');
-    const $authorNameAndAvatarDiv = $('<div>');
-    $authorNameAndAvatarDiv.addClass('author-name-and-avatar');
-    const $authorAvatarDiv = $('<div>');
-    $authorAvatarDiv.addClass('author-avatar');
-    const $img = $('<img>');
+    // potentially inputted data is handled with functions that escape potentially insecure text
+    const $tweetHeader = $(`<header>
+    <div class="author-name-and-avatar">
+      <div class="author-avatar"><img /></div>
+      <div class="author-name">Newton</div>
+    </div>
+    <div class="author-handle">@SirIsaac</div>
+  </header>`);
+    const $img = $tweetHeader.find('img');
     $img.attr('src', tweet.user.avatars);
-    $authorAvatarDiv.append($img);
-    $authorNameAndAvatarDiv.append($authorAvatarDiv);
-    const $authorNameDiv = $('<div>');
-    $authorNameDiv.addClass('author-name');
+    const $authorNameDiv = $tweetHeader.find('div.author-name');
     $authorNameDiv.text(tweet.user.name);
-    $authorNameAndAvatarDiv.append($authorNameDiv);
-    $tweetHeader.append($authorNameAndAvatarDiv);
-    const $authorHandleDiv = $('<div>');
-    $authorHandleDiv.addClass('author-handle');
-    $authorHandleDiv.text(tweet.user.handle);
-    $tweetHeader.append($authorHandleDiv);
+    const $authorHandle = $tweetHeader.find('div.author-handle');
+    $authorHandle.text(tweet.user.handle);
 
     $tweetElement.append($tweetHeader);
 
@@ -68,7 +63,7 @@ $(document).ready(function() {
       renderTweets(tweets);
     });
   };
-  
+
   // traverse from element with id #tweet-text to get the char counter number from the original DOM data, and to get the form for a new tweet
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
   const $newTweetForm = $('#tweet-text').parent();
@@ -86,9 +81,9 @@ $(document).ready(function() {
     $errorMsg.slideUp("slow", function() {
 
       // do validation
-      
+
       const warningHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
-      
+
       if (totalCharsLeft === origCounterValue) {
         // show error message
         $errorMsg.html(`${warningHTML}No message found, please write something${warningHTML}`);
@@ -111,7 +106,7 @@ $(document).ready(function() {
 
       // clear form
       $('#tweet-text').val('');
-      
+
       // POST request to add tweet via '/tweets/' route
       $.ajax({
         method: 'POST',

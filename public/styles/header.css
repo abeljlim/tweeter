@@ -21,6 +21,7 @@ header#user h2 span.last-name {
   font-weight: 300;
 }
 
+/* For desktop */
 @media only screen and (min-width: 1024px) {
   header#user {
     width: 50vw;
