@@ -132,6 +132,16 @@ article.tweet-container footer div.tweet-actions {
   color: #4156A0;
 }
 
+i.fa-flag, i.fa-retweet, i.fa-heart {
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+i.fa-flag:hover, i.fa-retweet:hover, i.fa-heart:hover {
+  transition: 0.25s;
+  color: #C99826;
+}
+
 #responsive-items {
   margin-top: 120px;
 }

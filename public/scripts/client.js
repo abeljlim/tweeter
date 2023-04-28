@@ -39,9 +39,9 @@ $(document).ready(function() {
     $tweetElement.append($(`<footer>
     <div class="timestamp">${timeago.format(1461116232227)}</div>
     <div class="tweet-actions">
-      <i class="fa-regular fa-flag"></i>
+      <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
-      <i class="fa-regular fa-heart"></i>
+      <i class="fa-solid fa-heart"></i>
     </div>
   </footer>`));
 
