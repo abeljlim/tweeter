@@ -111,7 +111,6 @@ $(document).ready(function() {
 
       // clear form
       $('#tweet-text').val('');
-
       
       // POST request to add tweet via '/tweets/' route
       $.ajax({
