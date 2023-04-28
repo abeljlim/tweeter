@@ -76,7 +76,7 @@ $(document).ready(function() {
 
   const $newTweetForm = $('.new-tweet').children('form');
 
-  const validateForm = function(event) {
+  const validateFormAndAjax = function(event) {
     event.preventDefault();
 
     // validate form before confirming submission
@@ -125,5 +125,5 @@ $(document).ready(function() {
   };
   
   loadTweets();
-  $newTweetForm.on('submit', validateForm);
+  $newTweetForm.on('submit', validateFormAndAjax);
 });
