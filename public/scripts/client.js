@@ -100,7 +100,7 @@ $(document).ready(function() {
     });
 
     // do the tweet creation not after the slideUp function, but simultaneously, which means handling the booleans again
-    if(!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
+    if (!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
       // happy path
       const dataQueryString = $newTweetForm.serialize();
 
@@ -117,7 +117,7 @@ $(document).ready(function() {
       });
     }
   };
-  
+
   loadTweets();
   $newTweetForm.on('submit', validateFormAndAjax);
 });
