@@ -2,10 +2,12 @@ $(document).ready(function() {
   // traverse from element with id #tweet-text to get the char counter number from the original DOM data, which is the original character limit
   const origCounterValue = Number($('#tweet-text').parent().find('.counter').html());
 
-  $('#tweet-text').on('input', function() {
+  const $textarea = $('#tweet-text');
+
+  const updateCounter = function() {
     // get counter num and set it
-    const textareaLen = $(this).val().length;
-    const $counter = $(this).parent().find('.counter');
+    const textareaLen = $textarea.val().length;
+    const $counter = $textarea.parent().find('.counter');
     const totalCharsLeft = origCounterValue - textareaLen;
     $counter.html(totalCharsLeft);
 
@@ -16,5 +18,8 @@ $(document).ready(function() {
       // remove style
       $counter.css("color", '');
     }
-  });
+  };
+
+  $textarea.on('input', updateCounter);
+  $textarea.parent().on('submit', updateCounter);
 });
