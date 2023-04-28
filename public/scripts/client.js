@@ -7,6 +7,7 @@ $(document).ready(function() {
     $tweetElement.addClass('tweet-container');
 
     // handle header data
+    // (one element and attribute at a time, so as to avoid XSS injection from user-inputted data)
     const $tweetHeader = $('<header>');
     const $authorNameAndAvatarDiv = $('<div>');
     $authorNameAndAvatarDiv.addClass('author-name-and-avatar');
@@ -99,9 +100,9 @@ $(document).ready(function() {
       }
     });
 
+    // happy path
     // do the tweet creation not after the slideUp function, but simultaneously, which means handling the booleans again
     if (!(totalCharsLeft === origCounterValue || totalCharsLeft < 0)) {
-      // happy path
       const dataQueryString = $newTweetForm.serialize();
 
       // clear form
@@ -111,7 +112,7 @@ $(document).ready(function() {
         method: 'POST',
         url: '/tweets/',
         data: dataQueryString
-      }).then(function(/* responseData */) {
+      }).then(function() {
         loadTweets();
         console.log('request has resolved');
       });
