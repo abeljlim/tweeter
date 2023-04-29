@@ -46,10 +46,8 @@ $(document).ready(function() {
 
   const loadTweets = function() {
     // fetch tweets from '/tweets' route
-    $.ajax({
-      method: 'GET',
-      url: '/tweets',
-    }).then(function(tweets) {
+    $.get('/tweets')
+      .then(function(tweets) {
       renderTweets(tweets);
     });
   };
@@ -98,13 +96,13 @@ $(document).ready(function() {
       $('#tweet-text').val('');
 
       // POST request to add tweet via '/tweets/' route
-      $.ajax({
-        method: 'POST',
-        url: '/tweets/',
-        data: dataQueryString
-      }).then(function() {
+      // TODO: $.post("/tweets", dataQueryString)
+      $.post("/tweets", dataQueryString)
+        .then(function() {
         loadTweets();
+        // can use $textarea.trigger("input"); to trigger an input event
       });
+      // NOTE: do not put $('.counter').html(140) here, due to separation of concerns
     }
   };
 
